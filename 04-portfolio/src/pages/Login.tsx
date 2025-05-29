@@ -1,0 +1,35 @@
+import { useState, useContext } from "react";
+import { useAuth, AuthContext } from "../context/AuthContext";
+
+const Login = () => {
+    const [userId, setUserId] = useState("");
+    const [userPass, setUserPass] = useState("");
+    const { isLoggedIn, login, logout } = useAuth();
+
+    // admin , 1234 -> 로그인 성공
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (userId === "admin" && userPass === "1234") {
+            login(userId);
+        } else {
+            alert("아이디 또는 비밀번호가 틀립니다. 다시 입력하세요.")
+        }
+    }
+
+    return (
+        <section>
+            <div className="inner">
+                <h2>로그인</h2>
+                {isLoggedIn ? (<button onClick={logout}>로그아웃</button>) : (
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" placeholder="아이디" value={userId} onChange={(e) => setUserId(e.target.value)} />
+                        <input type="password" placeholder="비밀번호" value={userPass} onChange={(e) => setUserPass(e.target.value)} />
+                        <button >로그인</button>
+                    </form>
+                )}
+            </div>
+        </section >
+    )
+}
+
+export default Login;

@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+
+    ul {
+      display: flex;
+      gap: 50px;
+    }
+  }
+}
