@@ -1,0 +1,11 @@
+.big-title-box {
+    font-size: 4rem;
+    line-height: 1;
+    span {
+        display: block;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#669ee8+0,374fd5+44,391d9d+100 */
+        background: linear-gradient(to right, rgb(79, 170, 255) 0%, rgb(0, 94, 255) 44%, rgb(18, 0, 255) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
