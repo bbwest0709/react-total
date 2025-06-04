@@ -39,6 +39,8 @@ const WeatherProvider = ({children}) => {
         }
         axiosWeather();
     }, [selectCountry])
+
+    console.log(weatherData);
     return (
         <div>
             <WeatherContext.Provider value={{selectCountry, setSelectCountry, weatherData, setWeatherData, countries }}>
