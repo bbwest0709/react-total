@@ -5,6 +5,9 @@ import AxiosExample from './components/AxiosExample';
 import Weather from './components/Weather';
 import Movie from './components/Movie';
 import FakeStore from './components/FakeStore';
+import CounterState from './components/CounterState';
+import CounterZus from './components/CounterZus';
+import CounterRecoil from './components/CounterRecoil';
 
 function App() {
   return (
@@ -13,7 +16,19 @@ function App() {
       {/* <AxiosExample /> */}
       {/* <Weather /> */}
       {/* <Movie /> */}
-      <FakeStore />
+      {/* <FakeStore /> */}
+      <h1>counter</h1>
+      <h2>useState, useContext</h2>
+      {/* <CounterState /> */}
+
+      <hr />
+      <h2>Zustand</h2>
+      <CounterZus />
+
+      <hr />
+      <h2>Recoil</h2>
+      <CounterRecoil />
+      <hr />
     </div>
   );
 }

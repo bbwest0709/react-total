@@ -4,13 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import WeatherProvider from './context/WeatherProvider';
+import { CounterProvider } from './context/CounterContext';
+import { RecoilRoot } from 'recoil';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <WeatherProvider >
-        <App />
-      </WeatherProvider>
+    <RecoilRoot>
+      <CounterProvider>
+        <WeatherProvider >
+          <App />
+        </WeatherProvider>
+      </CounterProvider>
+    </RecoilRoot>
   </React.StrictMode>
 );
 
