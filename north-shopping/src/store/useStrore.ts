@@ -1,8 +1,8 @@
 import {create} from "zustand";
-import { CartStore } from "../types/ProduxtType";
+import { CartStore } from "../types/ProductType";
 import axios from "axios";
 
-const useStore = create<CartStore>((set, get) => ({
+export const useCartStore = create<CartStore>((set, get) => ({
     items: [],
     fetchItems: async() => {
         try {

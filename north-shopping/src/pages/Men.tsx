@@ -2,15 +2,15 @@ import React from 'react'
 import Title from '../components/Title'
 import CategoryPage from '../components/CategoryPage'
 
-const Women = () => {
+const Men = () => {
   return (
     <div className='container'>
       <div className='content-inner'>
-        <Title title="여자" />
-        <CategoryPage categoryName="women's clothing" />
+        <Title title="남자" />
+        <CategoryPage categoryName="men's clothing" />
       </div>
     </div>
   )
 }
 
-export default Women
+export default Men

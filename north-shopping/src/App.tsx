@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import { Route, Routes } from 'react-router-dom';
-import Man from './pages/Man';
+import Men from './pages/Men';
 import Women from './pages/Women';
 import Jewelery from './pages/Jewelery';
 import Electric from './pages/Electric';
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/man" element={<Man />} />
+          <Route path="/man" element={<Men />} />
           <Route path="/woman" element={<Women />} />
           <Route path="/jewelery" element={<Jewelery />} />
           <Route path="/electric" element={<Electric />} />
