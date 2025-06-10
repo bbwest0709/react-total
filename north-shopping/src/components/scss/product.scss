@@ -24,6 +24,15 @@
             strong {
                 color: g.$강조색상;
             }
+            .price-wrap {
+                @include g.myFlex($gap: 10px);
+            }
+            .sale-price {
+                font-size: 1.25rem;
+            }
+            .price {
+                text-decoration: line-through;
+            }
         }
     }
 }
