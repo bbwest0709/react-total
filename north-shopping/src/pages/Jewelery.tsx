@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from '../components/Title'
 
 const Jewelery = () => {
   return (
     <div className='container'>
-      주얼리
+      <Title title="주얼리" />
     </div>
   )
 }

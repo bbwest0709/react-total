@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from '../components/Title'
 
 const Electric = () => {
   return (
     <div className='container'>
-      전자기기
+      <Title title="전자제품" />
     </div>
   )
 }

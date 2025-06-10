@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from '../components/Title'
 
 const ProductDetail = () => {
   return (
     <div className='container'>
-      제품 상세페이지
+      <Title title="제품 상세" />
     </div>
   )
 }
