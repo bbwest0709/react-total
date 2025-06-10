@@ -14,7 +14,7 @@ const SectionSwiper = ({category}:{category:Product[]}) => {
       spaceBetween={24}>
         {category.map((item) => (
           <SwiperSlide>
-            <Link to={`/products/${item.id}`}>
+            <Link to={`/product/${item.id}`}>
               <ProductCard sendItem={item} />
             </Link>
           </SwiperSlide>

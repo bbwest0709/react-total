@@ -27,12 +27,13 @@ function App() {
           <Route path="/woman" element={<Women />} />
           <Route path="/jewelery" element={<Jewelery />} />
           <Route path="/electric" element={<Electric />} />
-          <Route path="/*" element={<Notfound />} />
           <Route path="/product/:id" element={<ProductDetail />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/sighup" element={<SignUp />} />
           <Route path="/cart" element={<Cart />} />
+
+          <Route path="/*" element={<Notfound />} />
         </Route>
       </Routes>
       <Footer />
