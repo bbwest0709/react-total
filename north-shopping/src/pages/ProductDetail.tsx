@@ -4,11 +4,13 @@ import { useParams } from 'react-router-dom'
 import { Product } from '../types/ProductType';
 import axios from 'axios';
 import "./scss/productDetail.scss";
+import { useCartStore } from '../store/useStrore';
 
 const ProductDetail = () => {
   const {id} = useParams<{id:string}>();
   const [product, setProduct] = useState<Product|null>(null);
-  
+  const { addCart } = useCartStore();
+
   useEffect(() => {
     if(!id) return;
     axios.get(`https://fakestoreapi.com/products/${id}`)
@@ -31,7 +33,7 @@ const ProductDetail = () => {
               <p>{product.description}</p>
               <div className="btn">
                 <button className='white-btn'>찜하기</button>
-                <button className='black-btn'>장바구니</button>
+                <button className='black-btn' onClick={() => addCart(product)}>장바구니</button>
               </div>
             </div>
         </div>
