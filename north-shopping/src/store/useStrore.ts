@@ -30,8 +30,20 @@ export const useCartStore = create<CartStore>((set, get) => ({
             alert("상품이 장바구니에 담겼습니다.");
             return {
                 cartItems: updateCart,
-                cartCount: updateCount,
+                cartCount: updateCount
             };
         });
+    },
+    // 장바구니 삭제
+    removeCart: (id:number) => {
+        set((state) => {
+            const updateCart = state.cartItems.filter((item) => item.id !== id);
+            const updateCount = state.cartCount - 1;
+            alert("상품이 삭제되었습니다")
+            return {
+                cartItems: updateCart,
+                cartCount: updateCount
+            }
+        })
     },
 }))

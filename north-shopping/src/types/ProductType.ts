@@ -18,4 +18,5 @@ export interface CartStore {
     fetchItems: () => void;
     getItemCategory: (category:string) => Product[],
     addCart: (product:Product) => void;
+    removeCart: (id:number) => void;
 }
