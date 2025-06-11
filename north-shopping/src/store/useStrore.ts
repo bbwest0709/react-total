@@ -6,6 +6,7 @@ export const useCartStore = create<CartStore>((set, get) => ({
     items: [],
     cartItems: [],
     cartCount:0,
+    totalPrice:0,
 
     fetchItems: async() => {
         try {
@@ -27,10 +28,13 @@ export const useCartStore = create<CartStore>((set, get) => ({
         set((state) => {
             const updateCart = [...state.cartItems, product];
             const updateCount = state.cartCount + 1;
+            // reduce(누적값, 현재값) : 배열에 있는 데이터를 체크를 하면서 누적 값을 계산하는 함수
+            const updateTotal = updateCart.reduce((sum, item) => sum + item.price, 0);
             alert("상품이 장바구니에 담겼습니다.");
             return {
                 cartItems: updateCart,
-                cartCount: updateCount
+                cartCount: updateCount,
+                totalPrice: updateTotal
             };
         });
     },
@@ -39,10 +43,12 @@ export const useCartStore = create<CartStore>((set, get) => ({
         set((state) => {
             const updateCart = state.cartItems.filter((item) => item.id !== id);
             const updateCount = state.cartCount - 1;
+            const updateTotal = updateCart.reduce((sum, item) => sum + item.price, 0);
             alert("상품이 삭제되었습니다")
             return {
                 cartItems: updateCart,
-                cartCount: updateCount
+                cartCount: updateCount,
+                totalPrice: updateTotal
             }
         })
     },

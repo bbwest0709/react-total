@@ -39,5 +39,9 @@
                 @include g.myFlex($gap: 10px);
             }
         }
+
+        &.cart-bottom {
+            padding: 20px;
+        }
     }
 }
