@@ -14,7 +14,8 @@ const menus: MenuItem[] = [
     { key: 'electric', label: "전자제품" }
 ]
 const Header = () => {
-    const { cartCount } = useCartStore();
+    const { cartCount, currentUser, logout } = useCartStore();
+    const username = currentUser?.email ? currentUser.email.split("@")[0] : null;
     return (
         <header>
             <div className="content-inner">
@@ -30,18 +31,37 @@ const Header = () => {
                 </div>
                 <div className="header-right">
                     <ul>
-                        <li>
-                            <Link to="/login">
-                                <img src='./images/loginPassword.png' alt='' />
-                                <p>LOGIN</p>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/signup">
-                                <img src="./images/loginMember.png" alt='' />
-                                <p>MEMBER</p>
-                            </Link>
-                        </li>
+                        {currentUser ? (
+                            <>
+                                <li>
+                                    <Link to="/logout">
+                                        <img src='./images/loginPassword.png' alt='' />
+                                        <p>{username}</p>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/member" onClick={logout}>
+                                        <img src="./images/loginMember.png" alt='' />
+                                        <p>LOGOUT</p>
+                                    </Link>
+                                </li>
+                            </>
+                        ) : (
+                            <>
+                                <li>
+                                    <Link to="/login">
+                                        <img src='./images/loginPassword.png' alt='' />
+                                        <p>LOGIN</p>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/signup">
+                                        <img src="./images/loginMember.png" alt='' />
+                                        <p>MEMBER</p>
+                                    </Link>
+                                </li>
+                            </>
+                        )}
                         <li>
                             <Link to="/cart">
                                 <img src="./images/cart.png" alt='' />

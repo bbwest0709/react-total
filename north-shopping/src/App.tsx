@@ -15,6 +15,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Cart from './pages/Cart';
 import ProductDetail from './pages/ProductDetail';
+import Member from './pages/Member';
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
           <Route path="/product/:id" element={<ProductDetail />} />
 
           <Route path="/login" element={<Login />} />
-          <Route path="/sighup" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/member" element={<Member />} />
           <Route path="/cart" element={<Cart />} />
 
           <Route path="/*" element={<Notfound />} />
