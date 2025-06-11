@@ -3,9 +3,11 @@
 .goods-list {
     .img-box {
         border: 1px solid #ccc;
-        padding: 50px 30px;
+        padding: 20px 40px;
         img {
             height: 200px;
+            width: 100%;
+            object-fit: contain;
         }
     }
 

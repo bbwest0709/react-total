@@ -5,6 +5,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import "swiper/css";
+import "swiper/css/navigation";
 
 const SectionSwiper = ({ category }: { category: Product[] }) => {
   return (
