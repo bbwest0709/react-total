@@ -44,4 +44,12 @@
             padding: 20px;
         }
     }
+
+    .amount-wrap {
+        @include g.myFlex();
+        button {
+            border: none !important;
+            font-size: 1.25rem;
+        }
+    }
 }

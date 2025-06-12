@@ -30,10 +30,20 @@ export const useCartStore = create<CartStore>((set, get) => ({
     // 장바구니 담기
     addCart: (product: Product) => {
         set((state) => {
-            const updateCart = [...state.cartItems, product];
-            const updateCount = state.cartCount + 1;
+            const existingItem = state.cartItems.find(item => item.id === product.id);
+            let updateCart;
+
+            if (existingItem) {
+                updateCart = state.cartItems.map(item =>
+                    item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+                );
+            } else {
+                updateCart = [...state.cartItems, { ...product, quantity: 1 }];
+            }
+
+            const updateCount = updateCart.reduce((sum, item) => sum + item.quantity, 0);
             // reduce(누적값, 현재값) : 배열에 있는 데이터를 체크를 하면서 누적 값을 계산하는 함수
-            const updateTotal = updateCart.reduce((sum, item) => sum + item.price, 0);
+            const updateTotal = updateCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
             alert("상품이 장바구니에 담겼습니다.");
             return {
                 cartItems: updateCart,
@@ -55,6 +65,48 @@ export const useCartStore = create<CartStore>((set, get) => ({
                 totalPrice: updateTotal
             }
         })
+    },
+
+    increaseQuantity: (id: number) => {
+        set((state) => {
+            const updateCart = state.cartItems.map(item =>
+                item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+            );
+            const updateCount = updateCart.reduce((sum, item) => sum + item.quantity, 0);
+            const updateTotal = updateCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+            return {
+                cartItems: updateCart,
+                cartCount: updateCount,
+                totalPrice: updateTotal
+            };
+        })
+    },
+
+    decreaseQuantity: (id: number) => {
+        set((state) => {
+            const itemToUpdate = state.cartItems.find(item => item.id === id);
+
+            if (!itemToUpdate) return state;
+
+            let updateCart;
+            if (itemToUpdate.quantity === 1) {
+                updateCart = state.cartItems.filter(item => item.id !== id);
+            } else {
+                updateCart = state.cartItems.map(item =>
+                    item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+                );
+            }
+
+            const updateCount = updateCart.reduce((sum, item) => sum + item.quantity, 0);
+            const updateTotal = updateCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+            return {
+                cartItems: updateCart,
+                cartCount: updateCount,
+                totalPrice: updateTotal
+            };
+        });
     },
 
     // 회원가입
