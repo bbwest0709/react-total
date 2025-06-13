@@ -1,0 +1,111 @@
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+
+.todo-app-container {
+  width: 500px;
+  margin: 40px auto;
+  padding: 24px 30px;
+  border: 2px solid #4db6ac;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.todo-app-container h2 {
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.todo-item {
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  transition: color 0.3s ease;
+  user-select: none;
+  flex-grow: 1;
+}
+
+.todo-item:hover {
+  color: #26a69a;
+}
+
+.todo-item.completed {
+  text-decoration: line-through;
+  color: #999;
+  background-color: #f3f3f3;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  gap: 12px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+}
+
+button {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+button:hover {
+  background-color: #c9302c;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  outline-offset: 2px;
+  margin: 0; /* 여백 제거 */
+}
+
+input[type="text"]:focus {
+  border-color: #4db6ac;
+  outline: none;
+  box-shadow: 0 0 6px rgba(77, 182, 172, 0.5);
+}
+
+button[type="submit"] {
+  background-color: #28a745;
+  padding: 10px 18px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.4);
+}
+
+button[type="submit"]:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 12px rgba(33, 136, 56, 0.6);
+}
